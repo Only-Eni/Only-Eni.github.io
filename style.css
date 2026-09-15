@@ -1,1161 +1,748 @@
-/* =========================
-ROOT & RESET
-========================= */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 :root {
---background: #0b0f14;
---surface: #121820;
---surface-light: #19212b;
-
-```
---text: #f5f7fa;
---muted: #9aa4b2;
-
---accent: #55e6a5;
---border: #26303b;
-
---max-width: 1180px;
-```
-
+    --background: #0b0f14;
+    --surface: #121820;
+    --surface-light: #19212b;
+    --text: #f5f7fa;
+    --muted: #9aa4b2;
+    --accent: #55e6a5;
+    --border: #26303b;
+    --max-width: 1180px;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-background: var(--background);
-color: var(--text);
-font-family: "DM Sans", sans-serif;
-line-height: 1.6;
+    background: var(--background);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
 }
 
-/* =========================
-NAVIGATION
-========================= */
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .navbar {
-width: 100%;
-max-width: var(--max-width);
-margin: auto;
-padding: 24px 30px;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    background: rgba(11, 15, 20, 0.92);
+}
 
-```
-display: flex;
-justify-content: space-between;
-align-items: center;
-```
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-font-family: "Space Grotesk", sans-serif;
-font-size: 1.6rem;
-font-weight: 700;
-color: var(--text);
-text-decoration: none;
-}
-
-.logo span {
-color: var(--accent);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
 .nav-links {
-display: flex;
-gap: 30px;
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
 .nav-links a {
-color: var(--muted);
-text-decoration: none;
-font-size: 0.9rem;
-transition: 0.3s ease;
+    color: var(--muted);
+    transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
-color: var(--accent);
+    color: var(--text);
 }
 
-.github-nav {
-color: var(--text);
-text-decoration: none;
-font-size: 0.9rem;
 
-```
-border-bottom: 1px solid var(--accent);
-padding-bottom: 4px;
-
-transition: 0.3s ease;
-```
-
-}
-
-.github-nav:hover {
-color: var(--accent);
-}
-
-/* =========================
-HERO
-========================= */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
-max-width: var(--max-width);
-margin: auto;
-min-height: 85vh;
-padding: 100px 30px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 7rem 1.5rem 6rem;
 
-```
-display: grid;
-grid-template-columns: 1.2fr 0.8fr;
-align-items: center;
-gap: 80px;
-```
-
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.eyebrow,
-.section-tag {
-color: var(--accent);
-font-size: 0.75rem;
-font-weight: 700;
-letter-spacing: 2px;
-margin-bottom: 22px;
+.hero-tag {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.2rem;
 }
 
 .hero h1 {
-font-family: "Space Grotesk", sans-serif;
-font-size: clamp(3rem, 7vw, 6rem);
-line-height: 1.05;
-margin-bottom: 30px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    margin-bottom: 1.5rem;
 }
 
-.hero h1 span,
-.section-heading h2 span,
-.contact-section h2 span {
-color: var(--accent);
+.hero h1 span {
+    color: var(--accent);
 }
 
 .hero-description {
-color: var(--muted);
-max-width: 620px;
-font-size: 1.05rem;
-margin-bottom: 35px;
-}
-
-.hero-description strong {
-color: var(--text);
-}
-
-/* =========================
-BUTTONS
-========================= */
-
-.hero-buttons,
-.contact-buttons {
-display: flex;
-gap: 15px;
-flex-wrap: wrap;
-}
-
-.btn {
-padding: 14px 22px;
-border-radius: 6px;
-text-decoration: none;
-font-weight: 600;
-transition: 0.3s ease;
-}
-
-.btn-primary {
-background: var(--accent);
-color: #06110c;
-}
-
-.btn-primary:hover {
-transform: translateY(-3px);
-}
-
-.btn-secondary {
-border: 1px solid var(--border);
-color: var(--text);
-}
-
-.btn-secondary:hover {
-border-color: var(--accent);
-}
-
-/* =========================
-HERO STATS
-========================= */
-
-.hero-stats {
-display: flex;
-gap: 40px;
-margin-top: 60px;
-}
-
-.hero-stats div {
-display: flex;
-flex-direction: column;
-}
-
-.hero-stats strong {
-font-size: 1.6rem;
-font-family: "Space Grotesk";
-}
-
-.hero-stats span {
-font-size: 0.8rem;
-color: var(--muted);
-}
-
-/* =========================
-DATA CARD
-========================= */
-
-.hero-visual {
-display: flex;
-justify-content: center;
-}
-
-.data-card {
-width: 100%;
-max-width: 380px;
-
-```
-background: var(--surface);
-border: 1px solid var(--border);
-
-padding: 28px;
-border-radius: 12px;
-```
-
-}
-
-.card-header {
-display: flex;
-justify-content: space-between;
-
-```
-font-size: 0.7rem;
-letter-spacing: 1px;
-
-color: var(--muted);
-```
-
-}
-
-.status {
-color: var(--accent);
-}
-
-.status-dot {
-display: inline-block;
-
-```
-width: 7px;
-height: 7px;
-
-border-radius: 50%;
-background: var(--accent);
-
-margin-right: 4px;
-```
-
-}
-
-/* CHART */
-
-.chart {
-height: 240px;
-
-```
-display: flex;
-align-items: end;
-
-gap: 14px;
-
-margin: 40px 0 15px;
-```
-
-}
-
-.bar {
-flex: 1;
-
-```
-background: var(--surface-light);
-
-border-radius: 4px 4px 0 0;
-
-transition: 0.4s ease;
-```
-
-}
-
-.bar:hover {
-background: var(--accent);
-}
-
-.bar-1 { height: 35%; }
-.bar-2 { height: 60%; }
-.bar-3 { height: 48%; }
-.bar-4 { height: 85%; }
-.bar-5 { height: 65%; }
-.bar-6 { height: 100%; }
-
-.chart-labels {
-display: flex;
-justify-content: space-between;
-
-```
-color: var(--muted);
-
-font-size: 0.65rem;
-letter-spacing: 1px;
-```
-
-}
-
-/* =========================
-GENERAL SECTIONS
-========================= */
-
-.section {
-max-width: var(--max-width);
-margin: auto;
-padding: 120px 30px;
-}
-
-.section-heading {
-max-width: 700px;
-margin-bottom: 70px;
-}
-
-.section-heading h2 {
-font-family: "Space Grotesk";
-font-size: clamp(2.2rem, 5vw, 4rem);
-line-height: 1.15;
-}
-
-/* =========================
-ABOUT
-========================= */
-
-.about-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-}
-
-.about-text {
-color: var(--muted);
-font-size: 1.05rem;
-}
-
-.about-text p {
-margin-bottom: 25px;
-}
-
-.focus-card {
-background: var(--surface);
-padding: 35px;
-border: 1px solid var(--border);
-}
-
-.focus-title {
-font-size: 0.7rem;
-color: var(--accent);
-letter-spacing: 2px;
-margin-bottom: 25px;
-}
-
-.focus-item {
-display: flex;
-gap: 20px;
-
-```
-padding: 20px 0;
-
-border-bottom: 1px solid var(--border);
-```
-
-}
-
-.focus-item span {
-color: var(--accent);
-font-size: 0.8rem;
-}
-
-.focus-item a {
-color: var(--text);
-text-decoration: none;
-transition: 0.3s ease;
-}
-
-.focus-item a:hover {
-color: var(--accent);
-}
-
-/* =========================================================
-CINEMATIC PROJECT SHOWCASE
-========================================================= */
-
-.project-showcase-section {
-max-width: var(--max-width);
-margin: auto;
-
-```
-padding: 120px 30px;
-
-border-top: 1px solid var(--border);
-```
-
-}
-
-.showcase-heading {
-max-width: 760px;
-margin-bottom: 65px;
-}
-
-.showcase-heading h2 {
-font-family: "Space Grotesk", sans-serif;
-
-```
-font-size: clamp(2.5rem, 5vw, 4.5rem);
-
-line-height: 1.08;
-
-margin-bottom: 25px;
-```
-
-}
-
-.showcase-heading h2 span {
-color: var(--accent);
-}
-
-.showcase-intro {
-max-width: 620px;
-
-```
-color: var(--muted);
-
-font-size: 1rem;
-```
-
-}
-
-/* =========================
-SHOWCASE CONTAINER
-========================= */
-
-.project-showcase {
-position: relative;
-
-```
-min-height: 680px;
-
-display: grid;
-
-grid-template-columns: 1.35fr 0.65fr;
-
-gap: 55px;
-
-align-items: stretch;
-```
-
-}
-
-/* =========================
-IMAGE AREA
-========================= */
-
-.showcase-image-container {
-position: relative;
-
-```
-width: 100%;
-height: 680px;
-
-overflow: hidden;
-
-background: var(--surface);
-
-border: 1px solid var(--border);
-
-border-radius: 14px;
-```
-
-}
-
-/* Every image occupies the exact same space */
-
-.showcase-slide {
-position: absolute;
-
-```
-inset: 0;
-
-width: 100%;
-height: 100%;
-
-opacity: 0;
-
-pointer-events: none;
-
-transition:
-    opacity 1.4s ease,
-    transform 1.8s ease;
-
-transform: scale(1.025);
-
-z-index: 1;
-```
-
-}
-
-/* Active image */
-
-.showcase-slide.active {
-opacity: 1;
-
-```
-transform: scale(1);
-
-pointer-events: auto;
-
-z-index: 2;
-```
-
-}
-
-/* Image itself */
-
-.showcase-image {
-width: 100%;
-height: 100%;
-
-```
-display: block;
-
-object-fit: cover;
-
-object-position: center;
-```
-
-}
-
-/* Dark gradient over image */
-
-.showcase-overlay {
-position: absolute;
-
-```
-inset: 0;
-
-pointer-events: none;
-
-background:
-    linear-gradient(
-        180deg,
-        rgba(11, 15, 20, 0.05) 0%,
-        rgba(11, 15, 20, 0.12) 45%,
-        rgba(11, 15, 20, 0.75) 100%
-    );
-```
-
-}
-
-/* =========================================================
-SHOWCASE CONTENT
-========================================================= */
-
-.showcase-content {
-min-height: 680px;
-
-```
-display: flex;
-
-flex-direction: column;
-
-justify-content: space-between;
-
-padding: 20px 0;
-```
-
-}
-
-/* Meta */
-
-.showcase-meta {
-display: flex;
-
-```
-align-items: center;
-
-gap: 18px;
-
-padding-bottom: 25px;
-
-border-bottom: 1px solid var(--border);
-```
-
-}
-
-.showcase-number {
-font-family: "Space Grotesk", sans-serif;
-
-```
-color: var(--accent);
-
-font-size: 1rem;
-```
-
-}
-
-.showcase-category {
-color: var(--muted);
-
-```
-font-size: 0.68rem;
-
-letter-spacing: 1.8px;
-
-font-weight: 600;
-```
-
-}
-
-/* Main text */
-
-.showcase-text {
-padding: 35px 0;
-}
-
-.showcase-label {
-color: var(--accent);
-
-```
-font-size: 0.68rem;
-
-letter-spacing: 1.5px;
-
-margin-bottom: 18px;
-```
-
-}
-
-.showcase-title {
-font-family: "Space Grotesk", sans-serif;
-
-```
-font-size: clamp(2rem, 4vw, 3.3rem);
-
-line-height: 1.05;
-
-margin-bottom: 22px;
-```
-
-}
-
-.showcase-description {
-color: var(--muted);
-
-```
-font-size: 0.98rem;
-
-max-width: 430px;
-```
-
-}
-
-/* =========================
-CONTROLS
-========================= */
-
-.showcase-controls {
-display: flex;
-
-```
-align-items: center;
-
-gap: 20px;
-
-padding-top: 25px;
-
-border-top: 1px solid var(--border);
-```
-
-}
-
-.showcase-prev,
-.showcase-next {
-width: 48px;
-height: 48px;
-
-```
-border: 1px solid var(--border);
-
-background: transparent;
-
-color: var(--text);
-
-border-radius: 50%;
-
-cursor: pointer;
-
-font-size: 1.1rem;
-
-transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
-```
-
-}
-
-.showcase-prev:hover,
-.showcase-next:hover {
-border-color: var(--accent);
-
-```
-color: var(--accent);
-
-transform: translateY(-2px);
-```
-
-}
-
-/* =========================
-PROGRESS
-========================= */
-
-.showcase-progress {
-display: flex;
-
-```
-align-items: center;
-
-gap: 12px;
-
-flex: 1;
-
-color: var(--muted);
-
-font-size: 0.7rem;
-
-letter-spacing: 1px;
-```
-
-}
-
-.progress-current {
-color: var(--text);
-
-```
-font-weight: 700;
-```
-
-}
-
-.progress-total {
-color: var(--muted);
-}
-
-.progress-line {
-height: 1px;
-
-```
-flex: 1;
-
-background: var(--border);
-
-position: relative;
-
-overflow: hidden;
-```
-
-}
-
-/* Animated progress indicator */
-
-.progress-line::after {
-content: "";
-
-```
-position: absolute;
-
-left: 0;
-top: 0;
-
-width: 100%;
-height: 100%;
-
-background: var(--accent);
-
-transform: translateX(-100%);
-```
-
-}
-
-/* JS will add this class while slide is active */
-
-.project-showcase.is-playing
-.progress-line::after {
-
-```
-animation:
-    showcaseProgress 6s linear forwards;
-```
-
-}
-
-@keyframes showcaseProgress {
-
-```
-from {
-    transform: translateX(-100%);
-}
-
-to {
-    transform: translateX(0);
-}
-```
-
-}
-
-/* =========================
-PROJECT LINK
-========================= */
-
-.showcase-project-link {
-display: inline-flex;
-
-```
-align-self: flex-start;
-
-color: var(--accent);
-
-text-decoration: none;
-
-font-weight: 600;
-
-font-size: 0.9rem;
-
-padding-bottom: 6px;
-
-border-bottom: 1px solid var(--accent);
-
-transition: 0.3s ease;
-```
-
-}
-
-.showcase-project-link:hover {
-opacity: 0.7;
-
-```
-transform: translateX(4px);
-```
-
-}
-
-/* =========================
-SKILLS
-========================= */
-
-.skills-section {
-border-top: 1px solid var(--border);
-}
-
-.skills-grid {
-display: grid;
-
-```
-grid-template-columns: repeat(3, 1fr);
-
-border-top: 1px solid var(--border);
-
-border-left: 1px solid var(--border);
-```
-
-}
-
-.skill {
-padding: 35px;
-
-```
-border-right: 1px solid var(--border);
-
-border-bottom: 1px solid var(--border);
-```
-
-}
-
-.skill span {
-color: var(--accent);
-
-```
-font-size: 0.7rem;
-```
-
-}
-
-.skill h3 {
-font-family: "Space Grotesk";
-
-```
-margin: 20px 0 10px;
-```
-
-}
-
-.skill p {
-color: var(--muted);
-
-```
-font-size: 0.9rem;
-```
-
-}
-
-/* =========================
-CONTACT
-========================= */
-
-.contact-section {
-max-width: var(--max-width);
-
-```
-margin: auto;
-
-padding: 130px 30px;
-
-text-align: center;
-```
-
-}
-
-.contact-section h2 {
-font-family: "Space Grotesk";
-
-```
-font-size: clamp(2.5rem, 6vw, 5rem);
-
-margin-bottom: 25px;
-```
-
-}
-
-.contact-section > p:not(.section-tag) {
-color: var(--muted);
-
-```
-max-width: 600px;
-
-margin: auto auto 35px;
-```
-
-}
-
-.contact-buttons {
-justify-content: center;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-footer {
-max-width: var(--max-width);
-
-```
-margin: auto;
-
-padding: 30px;
-
-border-top: 1px solid var(--border);
-
-display: flex;
-
-justify-content: space-between;
-
-align-items: center;
-```
-
-}
-
-footer p {
-color: var(--muted);
-
-```
-font-size: 0.8rem;
-```
-
-}
-
-footer a {
-color: var(--muted);
-
-```
-text-decoration: none;
-
-font-size: 0.8rem;
-
-transition: 0.3s ease;
-```
-
-}
-
-footer a:hover {
-color: var(--accent);
-}
-
-/* =========================================================
-RESPONSIVE
-========================================================= */
-
-@media (max-width: 900px) {
-
-```
-.nav-links {
-    display: none;
-}
-
-.github-nav {
-    display: none;
-}
-
-.hero {
-    grid-template-columns: 1fr;
-
-    padding-top: 70px;
-
-    gap: 60px;
-}
-
-.hero-visual {
-    justify-content: flex-start;
-}
-
-.about-grid {
-    grid-template-columns: 1fr;
-
-    gap: 40px;
-}
-
-
-/* Showcase becomes vertical */
-
-.project-showcase {
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-
-    min-height: auto;
-}
-
-.showcase-image-container {
-    height: 560px;
-}
-
-.showcase-content {
-    min-height: auto;
-
-    padding: 0;
-}
-
-.showcase-text {
-    padding: 35px 0;
-}
-```
-
-}
-
-@media (max-width: 600px) {
-
-```
-.navbar {
-    padding: 20px;
-}
-
-.hero,
-.section,
-.project-showcase-section,
-.contact-section {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.hero-stats {
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
-.showcase-heading {
-    margin-bottom: 45px;
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.8rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
 }
 
-.showcase-image-container {
-    height: 430px;
+.btn:hover {
+    transform: translateY(-2px);
+}
 
-    border-radius: 10px;
+.btn-primary {
+    background: var(--accent);
+    color: #07100b;
+    border-color: var(--accent);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+}
+
+
+/* =========================================================
+   HERO STATS
+========================================================= */
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.hero-stat {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
+
+.hero-stat strong {
+    display: block;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.5rem;
+}
+
+.hero-stat span {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   HERO DATA CARD
+========================================================= */
+
+.hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2rem;
+}
+
+.hero-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.hero-card-title {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.hero-card-status {
+    color: var(--accent);
+    font-size: 0.75rem;
+}
+
+.chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.8rem;
+    height: 220px;
+}
+
+.chart-bar {
+    flex: 1;
+    background: var(--accent);
+    opacity: 0.8;
+    border-radius: 5px 5px 0 0;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+}
+
+.section-tag {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+}
+
+.section h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 4rem;
+}
+
+.about-text {
+    color: var(--muted);
+    max-width: 700px;
+}
+
+.about-text p + p {
+    margin-top: 1rem;
+}
+
+
+/* =========================================================
+   CINEMATIC PROJECT SHOWCASE
+========================================================= */
+
+.project-showcase-section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 7rem 1.5rem;
+}
+
+.showcase-heading {
+    max-width: 720px;
+    margin-bottom: 3rem;
+}
+
+.showcase-heading h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin-bottom: 1.2rem;
+}
+
+.showcase-heading h2 span {
+    color: var(--accent);
+}
+
+.showcase-intro {
+    color: var(--muted);
+    max-width: 600px;
+}
+
+
+/* =========================================================
+   SHOWCASE LAYOUT
+========================================================= */
+
+.project-showcase {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.7fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+
+/* =========================================================
+   IMAGE FRAME
+========================================================= */
+
+.showcase-image-container {
+    position: relative;
+
+    width: 100%;
+    min-height: 560px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0f141b;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   INDIVIDUAL SLIDES
+========================================================= */
+
+.showcase-slide {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+
+    z-index: 1;
+}
+
+.showcase-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   PROJECT IMAGES
+========================================================= */
+
+.showcase-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+}
+
+
+/*
+   Portrait gets a filled presentation.
+   Project screenshots remain completely visible.
+*/
+
+.showcase-slide[data-type="profile"] .showcase-image {
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.showcase-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(11, 15, 20, 0.45),
+            transparent 45%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SHOWCASE CONTENT
+========================================================= */
+
+.showcase-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.showcase-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+
+    margin-bottom: 2rem;
+}
+
+.showcase-number {
+    color: var(--accent);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+}
+
+.showcase-category {
+    color: var(--muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+}
+
+.showcase-label {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+
+    margin-bottom: 0.8rem;
 }
 
 .showcase-title {
-    font-size: 2rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+
+    margin-bottom: 1.2rem;
 }
 
+.showcase-description {
+    color: var(--muted);
+    max-width: 500px;
+}
+
+
+/* =========================================================
+   SHOWCASE CONTROLS
+========================================================= */
+
 .showcase-controls {
-    gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 3rem;
 }
 
 .showcase-prev,
 .showcase-next {
     width: 44px;
     height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    background: transparent;
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
-footer {
-    flex-direction: column;
-
-    gap: 15px;
-
-    text-align: center;
+.showcase-prev:hover,
+.showcase-next:hover {
+    background: var(--accent);
+    color: #07100b;
+    border-color: var(--accent);
 }
-```
 
+.showcase-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    color: var(--muted);
+    font-size: 0.8rem;
 }
+
+.progress-current {
+    color: var(--text);
+}
+
+.progress-line {
+    width: 80px;
+    height: 1px;
+    background: var(--border);
+}
+
 
 /* =========================================================
-REDUCED MOTION
+   PROJECT LINK
+========================================================= */
+
+.showcase-project-link {
+    display: inline-flex;
+
+    width: fit-content;
+
+    margin-top: 2rem;
+
+    color: var(--accent);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    border-bottom: 1px solid var(--accent);
+
+    padding-bottom: 0.25rem;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.showcase-project-link:hover {
+    opacity: 0.75;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.skill-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 0.7rem;
+}
+
+.skill-card p {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-text {
+    color: var(--muted);
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-link {
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.25s ease;
+}
+
+.contact-link:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+}
+
+footer p {
+    max-width: var(--max-width);
+    margin: 0 auto;
+
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 5rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-showcase {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .showcase-image-container {
+        min-height: 500px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .hero-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .section,
+    .project-showcase-section,
+    .contact-section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .showcase-image-container {
+        min-height: 360px;
+        border-radius: 12px;
+    }
+
+    .showcase-title {
+        font-size: 2.2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-```
-html {
-    scroll-behavior: auto;
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
-
-.showcase-slide {
-    transition: none;
-    transform: none;
-}
-
-.project-showcase.is-playing
-.progress-line::after {
-    animation: none;
-}
-```
-
-}
-
-```
-
