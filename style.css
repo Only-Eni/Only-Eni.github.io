@@ -41,7 +41,6 @@ body {
 ========================= */
 
 .navbar {
-
     width: 100%;
     max-width: var(--max-width);
 
@@ -52,11 +51,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .logo {
-
     font-family: "Space Grotesk", sans-serif;
 
     font-size: 1.6rem;
@@ -65,7 +62,6 @@ body {
     color: var(--text);
 
     text-decoration: none;
-
 }
 
 .logo span {
@@ -73,14 +69,11 @@ body {
 }
 
 .nav-links {
-
     display: flex;
     gap: 30px;
-
 }
 
 .nav-links a {
-
     color: var(--muted);
 
     text-decoration: none;
@@ -88,7 +81,6 @@ body {
     font-size: 0.9rem;
 
     transition: 0.3s;
-
 }
 
 .nav-links a:hover {
@@ -96,7 +88,6 @@ body {
 }
 
 .github-nav {
-
     color: var(--text);
 
     text-decoration: none;
@@ -106,7 +97,6 @@ body {
     border-bottom: 1px solid var(--accent);
 
     padding-bottom: 4px;
-
 }
 
 
@@ -115,7 +105,6 @@ body {
 ========================= */
 
 .hero {
-
     max-width: var(--max-width);
 
     margin: auto;
@@ -131,12 +120,10 @@ body {
     align-items: center;
 
     gap: 80px;
-
 }
 
 .eyebrow,
 .section-tag {
-
     color: var(--accent);
 
     font-size: 0.75rem;
@@ -146,11 +133,9 @@ body {
     letter-spacing: 2px;
 
     margin-bottom: 22px;
-
 }
 
 .hero h1 {
-
     font-family: "Space Grotesk", sans-serif;
 
     font-size: clamp(3rem, 7vw, 6rem);
@@ -158,19 +143,15 @@ body {
     line-height: 1.05;
 
     margin-bottom: 30px;
-
 }
 
 .hero h1 span,
 .section-heading h2 span,
 .contact-section h2 span {
-
     color: var(--accent);
-
 }
 
 .hero-description {
-
     color: var(--muted);
 
     max-width: 620px;
@@ -178,7 +159,6 @@ body {
     font-size: 1.05rem;
 
     margin-bottom: 35px;
-
 }
 
 .hero-description strong {
@@ -186,21 +166,20 @@ body {
 }
 
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 
 .hero-buttons,
 .contact-buttons {
-
     display: flex;
 
     gap: 15px;
 
     flex-wrap: wrap;
-
 }
 
 .btn {
-
     padding: 14px 22px;
 
     border-radius: 6px;
@@ -210,72 +189,57 @@ body {
     font-weight: 600;
 
     transition: 0.3s;
-
 }
 
 .btn-primary {
-
     background: var(--accent);
 
     color: #06110c;
-
 }
 
 .btn-primary:hover {
-
     transform: translateY(-3px);
-
 }
 
 .btn-secondary {
-
     border: 1px solid var(--border);
 
     color: var(--text);
-
 }
 
 .btn-secondary:hover {
-
     border-color: var(--accent);
-
 }
 
 
-/* HERO STATS */
+/* =========================
+   HERO STATS
+========================= */
 
 .hero-stats {
-
     display: flex;
 
     gap: 40px;
 
     margin-top: 60px;
-
 }
 
 .hero-stats div {
-
     display: flex;
 
     flex-direction: column;
-
 }
 
 .hero-stats strong {
-
     font-size: 1.6rem;
 
     font-family: "Space Grotesk";
-
 }
 
 .hero-stats span {
-
     font-size: 0.8rem;
 
     color: var(--muted);
-
 }
 
 
@@ -284,15 +248,12 @@ body {
 ========================= */
 
 .hero-visual {
-
     display: flex;
 
     justify-content: center;
-
 }
 
 .data-card {
-
     width: 100%;
 
     max-width: 380px;
@@ -304,11 +265,9 @@ body {
     padding: 28px;
 
     border-radius: 12px;
-
 }
 
 .card-header {
-
     display: flex;
 
     justify-content: space-between;
@@ -318,34 +277,29 @@ body {
     letter-spacing: 1px;
 
     color: var(--muted);
-
 }
 
 .status {
-
     color: var(--accent);
-
 }
 
 .status-dot {
-
     display: inline-block;
 
     width: 7px;
-
     height: 7px;
 
     border-radius: 50%;
 
     background: var(--accent);
-
 }
 
 
-/* CHART */
+/* =========================
+   CHART
+========================= */
 
 .chart {
-
     height: 240px;
 
     display: flex;
@@ -355,11 +309,9 @@ body {
     gap: 14px;
 
     margin: 40px 0 15px;
-
 }
 
 .bar {
-
     flex: 1;
 
     background: var(--surface-light);
@@ -367,23 +319,37 @@ body {
     border-radius: 4px 4px 0 0;
 
     transition: 0.4s;
-
 }
 
 .bar:hover {
     background: var(--accent);
 }
 
-.bar-1 { height: 35%; }
-.bar-2 { height: 60%; }
-.bar-3 { height: 48%; }
-.bar-4 { height: 85%; }
-.bar-5 { height: 65%; }
-.bar-6 { height: 100%; }
+.bar-1 {
+    height: 35%;
+}
 
+.bar-2 {
+    height: 60%;
+}
+
+.bar-3 {
+    height: 48%;
+}
+
+.bar-4 {
+    height: 85%;
+}
+
+.bar-5 {
+    height: 65%;
+}
+
+.bar-6 {
+    height: 100%;
+}
 
 .chart-labels {
-
     display: flex;
 
     justify-content: space-between;
@@ -393,7 +359,6 @@ body {
     font-size: 0.65rem;
 
     letter-spacing: 1px;
-
 }
 
 
@@ -402,31 +367,25 @@ body {
 ========================= */
 
 .section {
-
     max-width: var(--max-width);
 
     margin: auto;
 
     padding: 120px 30px;
-
 }
 
 .section-heading {
-
     max-width: 700px;
 
     margin-bottom: 70px;
-
 }
 
 .section-heading h2 {
-
     font-family: "Space Grotesk";
 
     font-size: clamp(2.2rem, 5vw, 4rem);
 
     line-height: 1.15;
-
 }
 
 
@@ -435,41 +394,32 @@ body {
 ========================= */
 
 .about-grid {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
     gap: 80px;
-
 }
 
 .about-text {
-
     color: var(--muted);
 
     font-size: 1.05rem;
-
 }
 
 .about-text p {
-
     margin-bottom: 25px;
-
 }
 
 .focus-card {
-
     background: var(--surface);
 
     padding: 35px;
 
     border: 1px solid var(--border);
-
 }
 
 .focus-title {
-
     font-size: 0.7rem;
 
     color: var(--accent);
@@ -477,11 +427,9 @@ body {
     letter-spacing: 2px;
 
     margin-bottom: 25px;
-
 }
 
 .focus-item {
-
     display: flex;
 
     gap: 20px;
@@ -489,510 +437,14 @@ body {
     padding: 20px 0;
 
     border-bottom: 1px solid var(--border);
-
 }
 
 .focus-item span {
-
     color: var(--accent);
 
     font-size: 0.8rem;
-
 }
 
-
-/* =========================
-   PROJECTS
-========================= */
-
-.projects-section {
-
-    border-top: 1px solid var(--border);
-
-}
-
-.featured-project {
-
-    display: grid;
-
-    grid-template-columns: 100px 1fr;
-
-    gap: 30px;
-
-    padding: 50px;
-
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-
-    margin-bottom: 30px;
-
-}
-
-.project-number {
-
-    color: var(--accent);
-
-    font-family: "Space Grotesk";
-
-    font-size: 1.2rem;
-
-}
-
-.project-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 20px;
-
-}
-
-.project-category {
-
-    color: var(--accent);
-
-    font-size: 0.7rem;
-
-    letter-spacing: 1.5px;
-
-}
-
-.project-status {
-
-    font-size: 0.65rem;
-
-    border: 1px solid var(--accent);
-
-    color: var(--accent);
-
-    padding: 3px 8px;
-
-}
-
-.project-content h3,
-.project-card h3 {
-
-    font-family: "Space Grotesk";
-
-    font-size: 1.8rem;
-
-    margin-bottom: 15px;
-
-}
-
-.project-content > p,
-.project-card > p {
-
-    color: var(--muted);
-
-    margin-bottom: 25px;
-
-}
-
-
-/* TOOLS */
-
-.tools {
-
-    display: flex;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
-
-    margin-bottom: 30px;
-
-}
-
-.tools span {
-
-    border: 1px solid var(--border);
-
-    padding: 6px 10px;
-
-    font-size: 0.7rem;
-
-    color: var(--muted);
-
-}
-
-
-/* PROJECT LINKS */
-
-.project-link,
-.project-card a {
-
-    color: var(--accent);
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-}
-
-
-/* PROJECT GRID */
-
-.projects-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 25px;
-
-}
-
-.project-card {
-
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-
-    padding: 35px;
-
-    transition: 0.3s;
-
-}
-
-.project-card:hover {
-
-    transform: translateY(-6px);
-
-    border-color: var(--accent);
-
-}
-
-.project-number-small {
-
-    color: var(--muted);
-
-    font-size: 0.75rem;
-
-    display: block;
-
-    margin-bottom: 30px;
-
-}
-
-.project-card .project-category {
-
-    margin-bottom: 15px;
-
-}
-
-.in-progress {
-
-    border-style: dashed;
-
-}
-
-.coming-soon {
-
-    color: var(--accent);
-
-    font-size: 0.8rem;
-
-}
-
-
-/* OTHER WORK */
-
-.other-work {
-
-    margin-top: 70px;
-
-}
-
-.other-title {
-
-    font-size: 0.7rem;
-
-    color: var(--muted);
-
-    letter-spacing: 2px;
-
-    margin-bottom: 20px;
-
-}
-
-.other-links {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 15px;
-
-}
-
-.other-links a {
-
-    color: var(--muted);
-
-    text-decoration: none;
-
-    border-bottom: 1px solid var(--border);
-
-    padding-bottom: 5px;
-
-}
-
-.other-links a:hover {
-
-    color: var(--accent);
-
-}
-
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills-section {
-
-    border-top: 1px solid var(--border);
-
-}
-
-.skills-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    border-top: 1px solid var(--border);
-
-    border-left: 1px solid var(--border);
-
-}
-
-.skill {
-
-    padding: 35px;
-
-    border-right: 1px solid var(--border);
-
-    border-bottom: 1px solid var(--border);
-
-}
-
-.skill span {
-
-    color: var(--accent);
-
-    font-size: 0.7rem;
-
-}
-
-.skill h3 {
-
-    font-family: "Space Grotesk";
-
-    margin: 20px 0 10px;
-
-}
-
-.skill p {
-
-    color: var(--muted);
-
-    font-size: 0.9rem;
-
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-section {
-
-    max-width: var(--max-width);
-
-    margin: auto;
-
-    padding: 130px 30px;
-
-    text-align: center;
-
-}
-
-.contact-section h2 {
-
-    font-family: "Space Grotesk";
-
-    font-size: clamp(2.5rem, 6vw, 5rem);
-
-    margin-bottom: 25px;
-
-}
-
-.contact-section > p:not(.section-tag) {
-
-    color: var(--muted);
-
-    max-width: 600px;
-
-    margin: auto auto 35px;
-
-}
-
-.contact-buttons {
-
-    justify-content: center;
-
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-
-    max-width: var(--max-width);
-
-    margin: auto;
-
-    padding: 30px;
-
-    border-top: 1px solid var(--border);
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-}
-
-footer p {
-
-    color: var(--muted);
-
-    font-size: 0.8rem;
-
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 800px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .github-nav {
-        display: none;
-    }
-
-    .hero {
-
-        grid-template-columns: 1fr;
-
-        padding-top: 70px;
-
-        gap: 60px;
-
-    }
-
-    .hero-visual {
-
-        justify-content: flex-start;
-
-    }
-
-    .about-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-
-    }
-
-    .projects-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .skills-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-    .featured-project {
-
-        grid-template-columns: 1fr;
-
-        padding: 30px;
-
-    }
-
-    .hero-stats {
-
-        gap: 25px;
-
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .navbar {
-
-        padding: 20px;
-
-    }
-
-    .hero,
-    .section,
-    .contact-section {
-
-        padding-left: 20px;
-        padding-right: 20px;
-
-    }
-
-    .hero-stats {
-
-        flex-wrap: wrap;
-
-    }
-
-    .skills-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    footer {
-
-        flex-direction: column;
-
-        gap: 15px;
-
-        text-align: center;
-
-    }
-
-}
-.project-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    border-radius: 12px;
-    margin: 1rem 0 1.25rem;
-}
 
 /* =========================
    CINEMATIC PROJECT SHOWCASE
@@ -1000,20 +452,27 @@ footer p {
 
 .project-showcase-section {
     max-width: var(--max-width);
+
     margin: auto;
+
     padding: 120px 30px;
+
     border-top: 1px solid var(--border);
 }
 
 .showcase-heading {
     max-width: 700px;
+
     margin-bottom: 60px;
 }
 
 .showcase-heading h2 {
     font-family: "Space Grotesk";
+
     font-size: clamp(2.2rem, 5vw, 4rem);
+
     line-height: 1.15;
+
     margin-bottom: 20px;
 }
 
@@ -1023,6 +482,7 @@ footer p {
 
 .showcase-intro {
     color: var(--muted);
+
     max-width: 620px;
 }
 
@@ -1033,33 +493,46 @@ footer p {
 
 .project-showcase {
     display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+
+    grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(280px, 0.75fr);
+
     gap: 60px;
+
     align-items: center;
 }
 
 
 /* =========================
-   IMAGE AREA
+   SHOWCASE IMAGE AREA
 ========================= */
 
 .showcase-image-container {
     position: relative;
 
     width: 100%;
-    height: 560px;
+
+    min-height: 560px;
 
     background: var(--surface);
 
     border: 1px solid var(--border);
+
     border-radius: 12px;
 
     overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
 
 /* =========================
-   SLIDES
+   SHOWCASE SLIDES
 ========================= */
 
 .showcase-slide {
@@ -1070,44 +543,73 @@ footer p {
     width: 100%;
     height: 100%;
 
+    padding: 24px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     opacity: 0;
 
-    transition: opacity 1.2s ease;
+    visibility: hidden;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
 
     pointer-events: none;
 }
 
 .showcase-slide.active {
     opacity: 1;
+
+    visibility: visible;
+
     pointer-events: auto;
 }
 
 
 /* =========================
-   IMAGES
+   SHOWCASE IMAGES
 ========================= */
 
 .showcase-image {
-    width: 100%;
-    height: 100%;
-
     display: block;
 
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 100%;
+
     object-fit: contain;
+
     object-position: center;
+
+    border-radius: 4px;
+
+    user-select: none;
 }
 
 
 /*
-   Your portrait gets a photographic presentation.
-   Project screenshots remain completely visible.
+   Portrait presentation.
+   Project screenshots remain fully visible.
 */
 
+.showcase-slide[data-type="profile"] {
+    padding: 0;
+}
+
 .showcase-slide[data-type="profile"] .showcase-image {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    max-height: none;
+
     object-fit: cover;
 }
 
@@ -1124,8 +626,8 @@ footer p {
     background:
         linear-gradient(
             to top,
-            rgba(11, 15, 20, 0.35),
-            transparent 50%
+            rgba(11, 15, 20, 0.4),
+            transparent 55%
         );
 
     pointer-events: none;
@@ -1133,7 +635,7 @@ footer p {
 
 
 /* =========================
-   SHOWCASE INFORMATION
+   SHOWCASE CONTENT
 ========================= */
 
 .showcase-content {
@@ -1142,6 +644,7 @@ footer p {
 
 .showcase-meta {
     display: flex;
+
     align-items: center;
 
     gap: 15px;
@@ -1201,7 +704,7 @@ footer p {
 
 
 /* =========================
-   CONTROLS
+   SHOWCASE CONTROLS
 ========================= */
 
 .showcase-controls {
@@ -1246,6 +749,13 @@ footer p {
     border-color: var(--accent);
 }
 
+.showcase-prev:focus-visible,
+.showcase-next:focus-visible {
+    outline: 2px solid var(--accent);
+
+    outline-offset: 4px;
+}
+
 .showcase-progress {
     display: flex;
 
@@ -1272,7 +782,7 @@ footer p {
 
 
 /* =========================
-   PROJECT LINK
+   SHOWCASE PROJECT LINK
 ========================= */
 
 .showcase-project-link {
@@ -1286,31 +796,200 @@ footer p {
 
     font-weight: 600;
 
+    text-decoration: none;
+
     border-bottom: 1px solid var(--accent);
 
     padding-bottom: 4px;
 }
 
+.showcase-project-link:hover {
+    opacity: 0.8;
+}
+
 
 /* =========================
-   SHOWCASE RESPONSIVE
+   SKILLS
 ========================= */
 
+.skills-section {
+    border-top: 1px solid var(--border);
+}
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid var(--border);
+
+    border-left: 1px solid var(--border);
+}
+
+.skill {
+    padding: 35px;
+
+    border-right: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.skill span {
+    color: var(--accent);
+
+    font-size: 0.7rem;
+}
+
+.skill h3 {
+    font-family: "Space Grotesk";
+
+    margin: 20px 0 10px;
+}
+
+.skill p {
+    color: var(--muted);
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    padding: 130px 30px;
+
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-family: "Space Grotesk";
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+    margin-bottom: 25px;
+}
+
+.contact-section > p:not(.section-tag) {
+    color: var(--muted);
+
+    max-width: 600px;
+
+    margin: auto auto 35px;
+}
+
+.contact-buttons {
+    justify-content: center;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    padding: 30px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+footer p {
+    color: var(--muted);
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .project-showcase {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .showcase-image-container {
+        min-height: 500px;
+    }
+
+}
+
+
 @media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .github-nav {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 70px;
+
+        gap: 60px;
+    }
+
+    .hero-visual {
+        justify-content: flex-start;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-stats {
+        gap: 25px;
+    }
 
     .project-showcase-section {
         padding-left: 30px;
         padding-right: 30px;
     }
 
-    .project-showcase {
-        grid-template-columns: 1fr;
+}
 
-        gap: 40px;
-    }
+
+@media (max-width: 600px) {
 
     .showcase-image-container {
-        height: 500px;
+        min-height: 390px;
+    }
+
+    .showcase-slide {
+        padding: 15px;
+    }
+
+    .showcase-title {
+        font-size: 2.2rem;
     }
 
 }
@@ -1318,17 +997,60 @@ footer p {
 
 @media (max-width: 500px) {
 
+    .navbar {
+        padding: 20px;
+    }
+
+    .hero,
+    .section,
+    .contact-section,
     .project-showcase-section {
         padding-left: 20px;
         padding-right: 20px;
     }
 
-    .showcase-image-container {
-        height: 360px;
+    .hero-stats {
+        flex-wrap: wrap;
     }
 
-    .showcase-title {
-        font-size: 2.2rem;
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .showcase-image-container {
+        min-height: 330px;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .showcase-slide {
+        transition: none;
+    }
+
+    .btn,
+    .bar,
+    .showcase-prev,
+    .showcase-next {
+        transition: none;
     }
 
 }
