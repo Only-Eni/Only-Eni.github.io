@@ -2,6 +2,11 @@
    CINEMATIC PROJECT SHOWCASE
 ========================================================= */
 
+
+/* =========================
+   PROJECT DATA
+========================= */
+
 const showcaseProjects = [
     {
         number: "01",
@@ -9,7 +14,8 @@ const showcaseProjects = [
         label: "DATA ANALYST • PHYSIOTHERAPY STUDENT",
         title: "Oluwapelumi Atanda",
         description:
-            "Exploring the intersection of data, research, visualization and healthcare."
+            "Exploring the intersection of data, research, visualization and healthcare.",
+        link: null
     },
 
     {
@@ -19,7 +25,7 @@ const showcaseProjects = [
         title: "DataCamp Associate Practical",
         description:
             "Grocery store sales analysis using SQL to examine sales performance, product activity and customer purchasing patterns.",
-        link: "project.html?id=datacamp"
+        link: "https://github.com/Only-Eni/Datacamp-Associate-practical"
     },
 
     {
@@ -29,7 +35,7 @@ const showcaseProjects = [
         title: "SQL Data Analysis",
         description:
             "SQL-based exploratory analysis focused on examining dataset structure, uncovering useful metrics and identifying patterns for deeper investigation.",
-        link: "project.html?id=sql-data-analysis"
+        link: "https://github.com/Only-Eni/Task-3-Oluwapelumi-Atanda"
     },
 
     {
@@ -39,7 +45,7 @@ const showcaseProjects = [
         title: "Data Visualization Project",
         description:
             "Transforming analytical results into clear visual narratives designed to make patterns, comparisons and insights easier to understand.",
-        link: "project.html?id=data-visualization"
+        link: "https://github.com/Only-Eni/Task-4-Oluwapelumi-Atanda"
     },
 
     {
@@ -49,14 +55,14 @@ const showcaseProjects = [
         title: "Creator Performance Analytics",
         description:
             "An end-to-end analytics project exploring creator performance, audience reach, content categories and geographic trends.",
-        link: "project.html?id=creator-performance"
+        link: null
     }
 ];
 
 
-/* =========================================================
+/* =========================
    SHOWCASE ELEMENTS
-========================================================= */
+========================= */
 
 const showcase = document.querySelector(".project-showcase");
 
@@ -90,9 +96,9 @@ const projectLink =
     document.querySelector(".showcase-project-link");
 
 
-/* =========================================================
+/* =========================
    SHOWCASE STATE
-========================================================= */
+========================= */
 
 let currentIndex = 0;
 
@@ -101,9 +107,9 @@ let showcaseTimer = null;
 const transitionTime = 6000;
 
 
-/* =========================================================
+/* =========================
    UPDATE PROJECT INFORMATION
-========================================================= */
+========================= */
 
 function updateProjectInformation(index) {
 
@@ -134,24 +140,27 @@ function updateProjectInformation(index) {
     }
 
 
-    if (project.link && projectLink) {
+    if (projectLink) {
 
-        projectLink.href = project.link;
+        if (project.link) {
 
-        projectLink.style.display = "inline-flex";
+            projectLink.href = project.link;
 
-    } else if (projectLink) {
+            projectLink.hidden = false;
 
-        projectLink.removeAttribute("href");
+        } else {
 
-        projectLink.style.display = "none";
+            projectLink.removeAttribute("href");
+
+            projectLink.hidden = true;
+        }
     }
 }
 
 
-/* =========================================================
+/* =========================
    SHOW SLIDE
-========================================================= */
+========================= */
 
 function showSlide(index) {
 
@@ -171,7 +180,9 @@ function showSlide(index) {
 
 
     slides.forEach((slide) => {
+
         slide.classList.remove("active");
+
     });
 
 
@@ -185,23 +196,25 @@ function showSlide(index) {
 }
 
 
-/* =========================================================
+/* =========================
    NEXT / PREVIOUS
-========================================================= */
+========================= */
 
 function nextSlide() {
+
     showSlide(currentIndex + 1);
 }
 
 
 function previousSlide() {
+
     showSlide(currentIndex - 1);
 }
 
 
-/* =========================================================
+/* =========================
    AUTOPLAY
-========================================================= */
+========================= */
 
 function startShowcase() {
 
@@ -227,9 +240,9 @@ function stopShowcase() {
 }
 
 
-/* =========================================================
+/* =========================
    BUTTON CONTROLS
-========================================================= */
+========================= */
 
 if (nextButton) {
 
@@ -238,6 +251,7 @@ if (nextButton) {
         nextSlide();
 
         startShowcase();
+
     });
 }
 
@@ -249,32 +263,58 @@ if (previousButton) {
         previousSlide();
 
         startShowcase();
+
     });
 }
 
 
-/* =========================================================
+/* =========================
+   KEYBOARD CONTROLS
+========================= */
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "ArrowRight") {
+
+        nextSlide();
+
+        startShowcase();
+    }
+
+
+    if (event.key === "ArrowLeft") {
+
+        previousSlide();
+
+        startShowcase();
+    }
+});
+
+
+/* =========================
    PAUSE WHILE HOVERING
-========================================================= */
+========================= */
 
 if (showcase) {
 
     showcase.addEventListener("mouseenter", () => {
 
         stopShowcase();
+
     });
 
 
     showcase.addEventListener("mouseleave", () => {
 
         startShowcase();
+
     });
 }
 
 
-/* =========================================================
+/* =========================
    INITIALISE SHOWCASE
-========================================================= */
+========================= */
 
 if (slides.length > 0) {
 
@@ -291,9 +331,9 @@ if (slides.length > 0) {
 }
 
 
-/* =========================================================
+/* =========================
    DYNAMIC FOOTER YEAR
-========================================================= */
+========================= */
 
 const footer = document.querySelector("footer p");
 
@@ -301,6 +341,6 @@ if (footer) {
 
     const year = new Date().getFullYear();
 
-    footer.innerHTML =
+    footer.textContent =
         `© ${year} Oluwapelumi Atanda. Built with curiosity and data.`;
 }
