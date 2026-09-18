@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="Portfolio of Oluwapelumi Atanda — Data Analyst specializing in SQL, Power BI, Excel, Statistics and Healthcare Analytics.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Oluwapelumi Atanda — Data Analyst and Physiotherapy student combining data analytics, healthcare knowledge and statistical analysis."
+    >
 
     <title>Oluwapelumi Atanda | Data Analyst</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
@@ -27,28 +43,43 @@
          NAVIGATION
     ========================== -->
 
-    <nav class="navbar">
+    <header class="site-header">
 
-        <a href="#home" class="logo">
-            OA<span>.</span>
-        </a>
+        <nav class="navbar">
 
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
+            <a
+                href="#home"
+                class="logo"
+                aria-label="Oluwapelumi Atanda home"
+            >
+                OA.
+            </a>
 
-        <a
-            href="https://github.com/Only-Eni"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="github-nav">
-            GitHub ↗
-        </a>
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-    </nav>
+            <div
+                class="nav-links"
+                id="navLinks"
+            >
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </nav>
+
+    </header>
 
 
     <main>
@@ -57,98 +88,63 @@
              HERO
         ========================== -->
 
-        <section id="home" class="hero">
+        <section
+            class="hero-section"
+            id="home"
+        >
 
             <div class="hero-content">
 
                 <p class="eyebrow">
-                    DATA ANALYST • HEALTHCARE ANALYTICS ENTHUSIAST
+                    DATA ANALYST · HEALTHCARE ANALYTICS
                 </p>
 
                 <h1>
                     Turning data into
-                    <span>meaningful decisions.</span>
+                    <span>clearer decisions.</span>
                 </h1>
 
                 <p class="hero-description">
-
-                    I'm <strong>Oluwapelumi Atanda</strong>, a Data Analyst
-                    and Physiotherapy student interested in using data to
-                    uncover patterns, communicate insights and support
-                    better decisions across business, research and healthcare.
-
+                    I’m Oluwapelumi Atanda, a Physiotherapy student and
+                    aspiring Data Analyst working across SQL, Power BI,
+                    Excel, SPSS and statistical analysis.
                 </p>
 
-                <div class="hero-buttons">
+                <div class="hero-actions">
 
-                    <a href="#projects" class="btn btn-primary">
-                        Explore My Work ↓
+                    <a
+                        href="#projects"
+                        class="button button-primary"
+                    >
+                        View my work
                     </a>
 
                     <a
-                        href="https://github.com/Only-Eni"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-secondary">
-                        View GitHub ↗
+                        href="#contact"
+                        class="button button-secondary"
+                    >
+                        Let's connect
                     </a>
-
-                </div>
-
-                <div class="hero-stats">
-
-                    <div>
-                        <strong>SQL</strong>
-                        <span>Core Analytics</span>
-                    </div>
-
-                    <div>
-                        <strong>BI</strong>
-                        <span>Power BI</span>
-                    </div>
-
-                    <div>
-                        <strong>Research</strong>
-                        <span>Statistics</span>
-                    </div>
 
                 </div>
 
             </div>
 
+            <div class="hero-meta">
 
-            <div class="hero-visual">
+                <div class="hero-meta-item">
+                    <strong>SQL</strong>
+                    <span>Data querying</span>
+                </div>
 
-                <div class="data-card">
+                <div class="hero-meta-item">
+                    <strong>Power BI</strong>
+                    <span>Data visualization</span>
+                </div>
 
-                    <div class="card-header">
-
-                        <span>ANALYTICS PORTFOLIO</span>
-
-                        <div class="status">
-                            <span class="status-dot"></span>
-                            AVAILABLE
-                        </div>
-
-                    </div>
-
-                    <div class="chart">
-
-                        <div class="bar bar-1"></div>
-                        <div class="bar bar-2"></div>
-                        <div class="bar bar-3"></div>
-                        <div class="bar bar-4"></div>
-                        <div class="bar bar-5"></div>
-                        <div class="bar bar-6"></div>
-
-                    </div>
-
-                    <div class="chart-labels">
-                        <span>DATA</span>
-                        <span>INSIGHTS</span>
-                        <span>DECISIONS</span>
-                    </div>
-
+                <div class="hero-meta-item">
+                    <strong>Statistics</strong>
+                    <span>Analytical reasoning</span>
                 </div>
 
             </div>
@@ -160,69 +156,56 @@
              ABOUT
         ========================== -->
 
-        <section id="about" class="section">
+        <section
+            class="about-section section"
+            id="about"
+        >
 
             <div class="section-heading">
 
-                <p class="section-tag">
-                    01 / ABOUT ME
+                <p class="eyebrow">
+                    ABOUT
                 </p>
 
                 <h2>
-                    Data analysis with a
+                    Analytics with a
                     <span>healthcare perspective.</span>
                 </h2>
 
             </div>
 
-
             <div class="about-grid">
 
-                <div class="about-text">
+                <div class="about-image-wrapper">
 
-                    <p>
-                        I am a Data Analyst with a growing interest in
-                        Business Intelligence, healthcare analytics and
-                        evidence-based decision-making.
-                    </p>
-
-                    <p>
-                        My Physiotherapy background gives me an additional
-                        perspective on working with health and research data,
-                        particularly where analytical thinking needs to connect
-                        with real-world outcomes.
-                    </p>
-
-                    <p>
-                        I work with SQL, Power BI, Microsoft Excel, SPSS
-                        and statistical methods to clean, explore, analyze
-                        and communicate data in a way that is useful to
-                        decision-makers.
-                    </p>
+                    <img
+                        src="assets/oluwapelumi-atanda.jpg"
+                        alt="Oluwapelumi Atanda"
+                        class="about-image"
+                        loading="lazy"
+                    >
 
                 </div>
 
+                <div class="about-content">
 
-                <div class="focus-card">
-
-                    <p class="focus-title">
-                        CURRENT FOCUS
+                    <p>
+                        My background in Physiotherapy has shaped the way
+                        I approach data: with attention to context,
+                        evidence and the people behind the numbers.
                     </p>
 
-                    <div class="focus-item">
-                        <span>01</span>
-                        <p>Data Analytics</p>
-                    </div>
+                    <p>
+                        I’m developing practical experience in data
+                        cleaning, SQL analysis, dashboard development,
+                        statistical analysis and data storytelling.
+                    </p>
 
-                    <div class="focus-item">
-                        <span>02</span>
-                        <p>Business Intelligence</p>
-                    </div>
-
-                    <div class="focus-item">
-                        <span>03</span>
-                        <p>Healthcare Analytics</p>
-                    </div>
+                    <p>
+                        My goal is to bridge analytical thinking and
+                        healthcare knowledge while remaining capable of
+                        solving broader business and data problems.
+                    </p>
 
                 </div>
 
@@ -232,393 +215,72 @@
 
 
         <!-- =========================
-             CINEMATIC PROJECT SHOWCASE
+             PROJECT SHOWCASE
         ========================== -->
 
-        <section id="projects" class="project-showcase-section">
+        <section
+            class="project-showcase-section section"
+            id="projects"
+        >
 
-            <div class="showcase-heading">
+            <div class="section-heading showcase-heading">
 
-                <p class="section-tag">
-                    02 / SELECTED WORK
-                </p>
+                <div>
 
-                <h2>
-                    A closer look at
-                    <span>what I build.</span>
-                </h2>
+                    <p class="eyebrow">
+                        SELECTED WORK
+                    </p>
+
+                    <h2>
+                        Projects that show
+                        <span>how I work with data.</span>
+                    </h2>
+
+                </div>
 
                 <p class="showcase-intro">
-                    Explore selected projects through the work itself —
-                    from analysis and research to dashboards and visualization.
+                    A visual walkthrough of selected analytics,
+                    visualization and research projects.
                 </p>
 
             </div>
 
 
-            <div class="project-showcase">
+            <div
+                class="project-showcase"
+                id="projectShowcase"
+            >
 
                 <!-- IMAGE AREA -->
 
-                <div class="showcase-image-container">
-
-                    <!-- 01 — PROFILE -->
+                <div class="showcase-visual">
 
                     <div
-                        class="showcase-slide active"
-                        data-type="profile">
+                        class="showcase-image-container"
+                        id="showcaseImageContainer"
+                    >
+
+                        <!--
+                            DecodeLabs
+                        -->
 
                         <img
-                            src="assets/oluwapelumi-atanda.jpg"
-                            alt="Oluwapelumi Atanda"
-                            class="showcase-image">
-
-                        <div class="showcase-overlay"></div>
-
-                    </div>
-
-
-                    <!-- 02 — DATACAMP -->
-
-                    <div
-                        class="showcase-slide"
-                        data-project="datacamp">
+                            class="showcase-slide"
+                            src="assets/projects/decodelabs/DecodeLabs_main.png"
+                            alt="DecodeLabs analytics project"
+                            data-project="decodelabs"
+                            loading="eager"
+                        >
 
                         <img
-                            src="assets/projects/datacamp/image-1779691356360.jpg"
-                            alt="DataCamp Associate Practical project"
-                            class="showcase-image">
-
-                        <div class="showcase-overlay"></div>
-
-                    </div>
-
-
-                    <!-- 03 — SQL DATA ANALYSIS -->
-
-                    <div
-                        class="showcase-slide"
-                        data-project="sql-data-analysis">
+                            class="showcase-slide"
+                            src="assets/projects/decodelabs/decodelabs.png"
+                            alt="DecodeLabs analytics work"
+                            data-project="decodelabs"
+                            loading="lazy"
+                        >
 
                         <img
-                            src="assets/projects/sql-data-analysis/IMG-20260825-WA0010.jpg"
-                            alt="SQL Data Analysis project"
-                            class="showcase-image">
-
-                        <div class="showcase-overlay"></div>
-
-                    </div>
-
-
-                    <!-- 04 — DATA VISUALIZATION -->
-
-                    <div
-                        class="showcase-slide"
-                        data-project="data-visualization">
-
-                        <img
-                            src="assets/projects/data-visualization/Screenshot%202026-07-18%20142852.png"
-                            alt="Data Visualization project dashboard"
-                            class="showcase-image">
-
-                        <div class="showcase-overlay"></div>
-
-                    </div>
-
-
-                    <!-- 05 — CREATOR PERFORMANCE -->
-
-                    <div
-                        class="showcase-slide"
-                        data-project="creator-performance">
-
-                        <img
-                            src="assets/projects/creator-performance/Screenshot%202026-09-09%20233831.png"
-                            alt="Creator Performance Analytics dashboard"
-                            class="showcase-image">
-
-                        <div class="showcase-overlay"></div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PROJECT INFORMATION -->
-
-                <div class="showcase-content">
-
-                    <div class="showcase-meta">
-
-                        <span class="showcase-number">
-                            01
-                        </span>
-
-                        <span class="showcase-category">
-                            INTRODUCTION
-                        </span>
-
-                    </div>
-
-
-                    <div class="showcase-text">
-
-                        <p class="showcase-label">
-                            DATA ANALYST • PHYSIOTHERAPY STUDENT
-                        </p>
-
-                        <h3 class="showcase-title">
-                            Oluwapelumi Atanda
-                        </h3>
-
-                        <p class="showcase-description">
-                            Exploring the intersection of data, research,
-                            visualization and healthcare.
-                        </p>
-
-                    </div>
-
-
-                    <div class="showcase-controls">
-
-                        <button
-                            type="button"
-                            class="showcase-prev"
-                            aria-label="Previous project">
-                            ←
-                        </button>
-
-                        <div class="showcase-progress">
-
-                            <span class="progress-current">
-                                01
-                            </span>
-
-                            <span class="progress-line"></span>
-
-                            <span class="progress-total">
-                                05
-                            </span>
-
-                        </div>
-
-                        <button
-                            type="button"
-                            class="showcase-next"
-                            aria-label="Next project">
-                            →
-                        </button>
-
-                    </div>
-
-
-                    <a
-                        class="showcase-project-link"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        hidden>
-                        Explore Project ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SKILLS
-        ========================== -->
-
-        <section id="skills" class="section skills-section">
-
-            <div class="section-heading">
-
-                <p class="section-tag">
-                    03 / SKILLS
-                </p>
-
-                <h2>
-                    Tools for turning
-                    <span>data into insight.</span>
-                </h2>
-
-                <p class="showcase-intro">
-                    My current analytics toolkit spans data querying,
-                    business intelligence, spreadsheet analysis,
-                    visualization and statistical research.
-                </p>
-
-            </div>
-
-
-            <div class="skills-grid">
-
-                <div class="skill">
-                    <span>01</span>
-
-                    <h3>
-                        SQL & Data Analysis
-                    </h3>
-
-                    <p>
-                        Querying, aggregation, filtering, joins,
-                        exploratory analysis and analytical problem-solving.
-                    </p>
-                </div>
-
-
-                <div class="skill">
-                    <span>02</span>
-
-                    <h3>
-                        Power BI & Visualization
-                    </h3>
-
-                    <p>
-                        Dashboard development, visual storytelling,
-                        KPI reporting and communicating analytical findings.
-                    </p>
-                </div>
-
-
-                <div class="skill">
-                    <span>03</span>
-
-                    <h3>
-                        Excel & Power Query
-                    </h3>
-
-                    <p>
-                        Data cleaning, transformation, analysis,
-                        formulas and dashboard-oriented reporting.
-                    </p>
-                </div>
-
-
-                <div class="skill">
-                    <span>04</span>
-
-                    <h3>
-                        SPSS & Statistics
-                    </h3>
-
-                    <p>
-                        Statistical analysis, research workflows,
-                        test selection and interpretation.
-                    </p>
-                </div>
-
-
-                <div class="skill">
-                    <span>05</span>
-
-                    <h3>
-                        Exploratory Data Analysis
-                    </h3>
-
-                    <p>
-                        Investigating datasets, identifying patterns,
-                        checking data quality and developing useful questions.
-                    </p>
-                </div>
-
-
-                <div class="skill">
-                    <span>06</span>
-
-                    <h3>
-                        Healthcare Analytics
-                    </h3>
-
-                    <p>
-                        Applying analytical thinking to healthcare,
-                        research and evidence-based decision-making.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section id="contact" class="contact-section">
-
-            <p class="section-tag">
-                04 / CONTACT
-            </p>
-
-            <h2>
-                Let's turn data into
-                <span>something useful.</span>
-            </h2>
-
-            <p>
-                I am open to junior Data Analyst opportunities,
-                analytics projects, research collaborations and
-                opportunities where data can support better decisions.
-            </p>
-
-            <div class="contact-buttons">
-
-                <a
-                    href="mailto:olamideeniitan254@gmail.com"
-                    class="btn btn-primary">
-                    Email Me
-                </a>
-
-                <a
-                    href="https://www.linkedin.com/in/oluwapelumi-atanda-438a9730b"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-secondary">
-                    LinkedIn ↗
-                </a>
-
-                <a
-                    href="https://x.com/TheDataPT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-secondary">
-                    X ↗
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <p>
-            © 2026 Oluwapelumi Atanda. Built with curiosity and data.
-        </p>
-
-        <a
-            href="https://github.com/Only-Eni"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="github-nav">
-            GitHub ↗
-        </a>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
-</body>
-
-</html>
+                            class="showcase-slide"
+                            src="assets/projects/decodelabs/decodelabs2.png"
+                            alt="DecodeLabs data
