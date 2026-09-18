@@ -245,42 +245,99 @@
 
             </div>
 
+            <div class="project-showcase">
 
-            <div
-                class="project-showcase"
-                id="projectShowcase"
+    <!-- PROJECT INFORMATION -->
+    <div class="project-info">
+
+        <p class="project-category" id="projectCategory">
+            DATA ANALYTICS INTERNSHIP
+        </p>
+
+        <h2 class="project-title" id="projectTitle">
+            DecodeLabs Data Analytics Internship
+        </h2>
+
+        <p class="project-description" id="projectDescription">
+            Practical analytics work covering data preparation,
+            SQL analysis and visualization across multiple
+            internship tasks.
+        </p>
+
+        <div class="project-tags" id="projectTags">
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">Excel</span>
+            <span class="project-tag">Power BI</span>
+            <span class="project-tag">Data Analysis</span>
+        </div>
+
+        <a
+            href="#"
+            class="showcase-link"
+            id="showcaseLink"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+        >
+            View Project
+            <span aria-hidden="true">↗</span>
+        </a>
+
+    </div>
+
+
+    <!-- SINGLE SHOWCASE IMAGE -->
+    <div class="showcase-visual">
+
+        <div class="showcase-image-container">
+
+            <img
+                id="showcaseImage"
+                class="showcase-image"
+                src="assets/projects/decodelabs/DecodeLabs_main.png"
+                alt="DecodeLabs data analytics project"
+                width="1200"
+                height="800"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
             >
 
-                <!-- IMAGE AREA -->
+            <div class="showcase-image-overlay"></div>
 
-                <div class="showcase-visual">
+        </div>
 
-                    <div
-                        class="showcase-image-container"
-                        id="showcaseImageContainer"
-                    >
 
-                        <!--
-                            DecodeLabs
-                        -->
+        <!-- PROJECT NAVIGATION -->
 
-                        <img
-                            class="showcase-slide"
-                            src="assets/projects/decodelabs/DecodeLabs_main.png"
-                            alt="DecodeLabs analytics project"
-                            data-project="decodelabs"
-                            loading="eager"
-                        >
+        <div class="showcase-controls">
 
-                        <img
-                            class="showcase-slide"
-                            src="assets/projects/decodelabs/decodelabs.png"
-                            alt="DecodeLabs analytics work"
-                            data-project="decodelabs"
-                            loading="lazy"
-                        >
+            <button
+                type="button"
+                class="showcase-arrow"
+                id="previousProject"
+                aria-label="Previous project"
+            >
+                ←
+            </button>
 
-                        <img
-                            class="showcase-slide"
-                            src="assets/projects/decodelabs/decodelabs2.png"
-                            alt="DecodeLabs data
+            <div class="showcase-counter">
+                <span id="currentProjectNumber">01</span>
+                <span class="counter-divider">/</span>
+                <span id="totalProjects">05</span>
+            </div>
+
+            <button
+                type="button"
+                class="showcase-arrow"
+                id="nextProject"
+                aria-label="Next project"
+            >
+                →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
