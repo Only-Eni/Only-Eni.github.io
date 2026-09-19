@@ -490,9 +490,11 @@ h2 span {
 }
 
 
-/* Every image occupies the same visual space */
+/* =========================
+   SINGLE SHOWCASE IMAGE
+========================= */
 
-.showcase-slide {
+.showcase-image {
     position: absolute;
 
     top: 50%;
@@ -508,80 +510,39 @@ h2 span {
 
     transform:
         translate(-50%, -50%)
-        rotate(-3deg)
-        scale(0.96);
+        perspective(1200px)
+        rotateY(0deg)
+        rotateZ(0deg)
+        scale(1);
 
-    opacity: 0;
-
-    visibility: hidden;
-
-    z-index: 1;
-
-    filter:
-        drop-shadow(0 25px 45px rgba(0, 0, 0, 0.35));
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 0.8s ease,
-        visibility 0s linear 0.9s;
-}
-
-
-/* Active image */
-
-.showcase-slide.active {
     opacity: 1;
 
-    visibility: visible;
-
-    z-index: 3;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(0deg)
-        scale(1);
+    z-index: 2;
 
     filter:
         drop-shadow(0 30px 55px rgba(0, 0, 0, 0.45));
 
     transition:
-        opacity 0.8s ease,
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 0.8s ease,
-        visibility 0s linear 0s;
+        opacity 0.35s ease,
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.45s ease;
+
+    will-change:
+        opacity,
+        transform;
 }
 
 
-/* Image leaving */
+/* =========================
+   IMAGE OVERLAY
+========================= */
 
-.showcase-slide.previous {
-    opacity: 0;
-
-    visibility: visible;
-
-    z-index: 2;
-
-    transform:
-        translate(-48%, -50%)
-        rotate(5deg)
-        scale(0.92);
-
-    transition:
-        opacity 0.75s ease,
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-        visibility 0s linear 0.9s;
-}
-
-
-/* Subtle glass/lighting layer */
-
-.showcase-overlay {
+.showcase-image-overlay {
     position: absolute;
 
     inset: 0;
 
-    z-index: 5;
+    z-index: 3;
 
     pointer-events: none;
 
