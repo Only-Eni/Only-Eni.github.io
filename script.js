@@ -1,591 +1,352 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    /* =========================================================
-       PROJECT DATA
-    ========================================================= */
-
-    const projects = [
-        {
-            category: "DATA ANALYTICS INTERNSHIP",
-            title: "DecodeLabs Data Analytics Internship",
-            description:
-                "Practical analytics work covering data preparation, SQL analysis and visualization across multiple internship tasks.",
-            tags: ["SQL", "Excel", "Power BI", "Data Analysis"],
-            images: [
-                "assets/projects/decodelabs/DecodeLabs_main.png",
-                "assets/projects/decodelabs/decodelabs.png",
-                "assets/projects/decodelabs/decodelabs2.png",
-                "assets/projects/decodelabs/decodelabs3.png"
-            ],
-            link: null
-        },
-
-        {
-            category: "DATA ANALYTICS",
-            title: "DataCamp Associate Practical",
-            description:
-                "A practical analytics project demonstrating data analysis, SQL and problem-solving skills through a structured assessment.",
-            tags: ["SQL", "Data Analysis", "DataCamp"],
-            images: [
-                "assets/projects/datacamp/DA Associate - Twitter.png",
-                "assets/projects/datacamp/DA Associate - badge.png",
-                "assets/projects/datacamp/image-1779691356360.jpg"
-            ],
-            link: "https://github.com/Only-Eni/Datacamp-Associate-practical"
-        },
-
-        {
-            category: "DATA ANALYTICS PROJECT",
-            title: "DigitalVista",
-            description:
-                "A collaborative analytics project focused on transforming website traffic data into useful business insights and visualizations.",
-            tags: ["Excel", "Data Cleaning", "Visualization", "Analytics"],
-            images: [
-                "assets/projects/digitavista/digiavista_main.png",
-                "assets/projects/digitavista/digitavista2.png",
-                "assets/projects/digitavista/digitavista3.png"
-            ],
-            link: null
-        },
-
-        {
-            category: "HEALTHCARE RESEARCH",
-            title: "Statistical Analysis for Health Research",
-            description:
-                "A statistical analysis project applying appropriate methods to health research data and interpreting analytical outputs.",
-            tags: ["SPSS", "Statistics", "Health Research", "Data Analysis"],
-            images: [
-                "assets/projects/statistical-analysis/Stat1.png",
-                "assets/projects/statistical-analysis/Stat2.png",
-                "assets/projects/statistical-analysis/Stat3.png"
-            ],
-            link: "https://github.com/Only-Eni/Statistical-Analysis-for-Health-Research-Showcase"
-        },
-
-        {
-            category: "SQL & POWER BI",
-            title: "Creator Performance Analytics",
-            description:
-                "An analytics project examining YouTube creator performance using SQL for data preparation and analysis, followed by Power BI visualization.",
-            tags: ["SQL", "Power BI", "Data Cleaning", "Analytics"],
-            images: [
-                "assets/projects/creator-performance/youtube_performance.png",
-                "assets/projects/creator-performance/youtube_performance1.png",
-                "assets/projects/creator-performance/youtube_performance2.png"
-            ],
-            link: null
-        }
-    ];
-
-
-    /* =========================================================
-       ELEMENTS
-    ========================================================= */
-
-    const showcaseImage = document.getElementById("showcaseImage");
-    const projectCategory = document.getElementById("projectCategory");
-    const projectTitle = document.getElementById("projectTitle");
-    const projectDescription = document.getElementById("projectDescription");
-    const projectTags = document.getElementById("projectTags");
-    const showcaseLink = document.getElementById("showcaseLink");
-
-    const previousProject =
-        document.getElementById("previousProject");
-
-    const nextProject =
-        document.getElementById("nextProject");
-
-    const currentProjectNumber =
-        document.getElementById("currentProjectNumber");
-
-    const totalProjects =
-        document.getElementById("totalProjects");
-
-
-    /* =========================================================
-       STATE
-    ========================================================= */
-
-    let currentProject = 0;
-    let currentImage = 0;
-    let autoplayTimer = null;
-    let transitionLock = false;
-
-
-    /* =========================================================
-       PROJECT COUNT
-    ========================================================= */
-
-    totalProjects.textContent =
-        String(projects.length).padStart(2, "0");
-
-
-    /* =========================================================
-       IMAGE PRELOADING
-    ========================================================= */
-
-    function preloadImage(src) {
-        const image = new Image();
-        image.src = src;
-        return image;
-    }
-
-
-    function preloadProjectImages(project) {
-        project.images.forEach(src => {
-            preloadImage(src);
-        });
-    }
-
-
-    projects.forEach(project => {
-        preloadProjectImages(project);
-    });
-
-
-    /* =========================================================
-       UPDATE PROJECT INFORMATION
-    ========================================================= */
-
-    function updateProjectInformation() {
-
-        const project = projects[currentProject];
-
-        projectCategory.textContent =
-            project.category;
-
-        projectTitle.textContent =
-            project.title;
-
-        projectDescription.textContent =
-            project.description;
-
-
-        /* Tags */
-
-        projectTags.innerHTML = "";
-
-        project.tags.forEach(tag => {
-
-            const tagElement =
-                document.createElement("span");
-
-            tagElement.className =
-                "project-tag";
-
-            tagElement.textContent =
-                tag;
-
-            projectTags.appendChild(tagElement);
-
-        });
-
-
-        /* Project link */
-
-        if (project.link) {
-
-            showcaseLink.href =
-                project.link;
-
-            showcaseLink.hidden =
-                false;
-
-        } else {
-
-            showcaseLink.hidden =
-                true;
-
-            showcaseLink.removeAttribute("href");
-
-        }
-
-
-        /* Counter */
-
-        currentProjectNumber.textContent =
-            String(currentProject + 1).padStart(2, "0");
-
-    }
-
-
-    /* =========================================================
-       SHOW IMAGE
-    ========================================================= */
-
-    function showImage(index, animate = true) {
-
-        const project =
-            projects[currentProject];
-
-        const nextSrc =
-            project.images[index];
-
-
-        if (!nextSrc || !showcaseImage) {
-            return;
-        }
-
-
-        if (!animate) {
-
-            showcaseImage.src =
-                nextSrc;
-
-            showcaseImage.alt =
-                `${project.title} project preview`;
-
-            return;
-
-        }
-
-
-        if (transitionLock) {
-            return;
-        }
-
-        transitionLock = true;
-
-
-        /*
-         * Fade and angle the current image away.
-         */
-
-        showcaseImage.style.transition =
-            "opacity 0.35s ease, transform 0.45s ease";
-
-        showcaseImage.style.opacity =
-            "0";
-
-        showcaseImage.style.transform =
-            "perspective(1000px) rotateY(8deg) rotateZ(2deg) scale(0.96)";
-
-
-        setTimeout(() => {
-
-            showcaseImage.src =
-                nextSrc;
-
-            showcaseImage.alt =
-                `${project.title} project preview`;
-
-            showcaseImage.style.transform =
-                "perspective(1000px) rotateY(-4deg) rotateZ(-1deg) scale(0.97)";
-
-
-            requestAnimationFrame(() => {
-
-                requestAnimationFrame(() => {
-
-                    showcaseImage.style.opacity =
-                        "1";
-
-                    showcaseImage.style.transform =
-                        "perspective(1000px) rotateY(0deg) rotateZ(0deg) scale(1)";
-
-                });
-
-            });
-
-
-            setTimeout(() => {
-
-                transitionLock = false;
-
-            }, 450);
-
-        }, 350);
-
-    }
-
-
-    /* =========================================================
-       CHANGE IMAGE
-    ========================================================= */
-
-    function changeImage(direction) {
-
-        const project =
-            projects[currentProject];
-
-        const imageCount =
-            project.images.length;
-
-
-        currentImage =
-            (currentImage + direction + imageCount)
-            % imageCount;
-
-
-        preloadImage(
-            project.images[currentImage]
-        );
-
-
-        showImage(currentImage);
-
-    }
-
-
-    /* =========================================================
-       CHANGE PROJECT
-    ========================================================= */
-
-    function changeProject(direction) {
-
-        if (transitionLock) {
-            return;
-        }
-
-
-        currentProject =
-            (currentProject + direction + projects.length)
-            % projects.length;
-
-
-        currentImage = 0;
-
-
-        updateProjectInformation();
-
-
-        const firstImage =
-            projects[currentProject].images[0];
-
-
-        preloadProjectImages(
-            projects[currentProject]
-        );
-
-
-        showcaseImage.style.transition =
-            "opacity 0.3s ease, transform 0.4s ease";
-
-        showcaseImage.style.opacity =
-            "0";
-
-        showcaseImage.style.transform =
-            "perspective(1000px) rotateY(8deg) rotateZ(2deg) scale(0.96)";
-
-
-        transitionLock = true;
-
-
-        setTimeout(() => {
-
-            showcaseImage.src =
-                firstImage;
-
-            showcaseImage.alt =
-                `${projects[currentProject].title} project preview`;
-
-            showcaseImage.style.transform =
-                "perspective(1000px) rotateY(-4deg) rotateZ(-1deg) scale(0.97)";
-
-
-            requestAnimationFrame(() => {
-
-                requestAnimationFrame(() => {
-
-                    showcaseImage.style.opacity =
-                        "1";
-
-                    showcaseImage.style.transform =
-                        "perspective(1000px) rotateY(0deg) rotateZ(0deg) scale(1)";
-
-                });
-
-            });
-
-
-            setTimeout(() => {
-
-                transitionLock = false;
-
-            }, 450);
-
-        }, 300);
-
-
-        resetAutoplay();
-
-    }
-
-
-    /* =========================================================
-       AUTOPLAY
-    ========================================================= */
-
-    function startAutoplay() {
-
-        clearInterval(autoplayTimer);
-
-
-        autoplayTimer = setInterval(() => {
-
-            const project =
-                projects[currentProject];
-
-
-            /*
-             * Move through the images of the
-             * current project first.
-             */
-
-            if (currentImage < project.images.length - 1) {
-
-                changeImage(1);
-
-            } else {
-
-                /*
-                 * Once the final image is reached,
-                 * move to the next project.
-                 */
-
-                changeProject(1);
-
-            }
-
-        }, 4500);
-
-    }
-
-
-    function resetAutoplay() {
-
-        startAutoplay();
-
-    }
-
-
-    /* =========================================================
-       BUTTON CONTROLS
-    ========================================================= */
-
-    nextProject.addEventListener("click", () => {
-
-        changeProject(1);
-
-    });
-
-
-    previousProject.addEventListener("click", () => {
-
-        changeProject(-1);
-
-    });
-
-
-    /* =========================================================
-       KEYBOARD CONTROLS
-    ========================================================= */
-
-    document.addEventListener("keydown", event => {
-
-        if (event.key === "ArrowRight") {
-
-            changeProject(1);
-
-        }
-
-        if (event.key === "ArrowLeft") {
-
-            changeProject(-1);
-
-        }
-
-    });
-
-
-    /* =========================================================
-       PAUSE WHILE HOVERING
-    ========================================================= */
-
-    const showcase =
-        document.getElementById("projectShowcase");
-
-
-    showcase.addEventListener("mouseenter", () => {
-
-        clearInterval(autoplayTimer);
-
-    });
-
-
-    showcase.addEventListener("mouseleave", () => {
-
-        startAutoplay();
-
-    });
-
-
-    /* =========================================================
-       PAUSE WHEN TAB IS NOT VISIBLE
-    ========================================================= */
-
-    document.addEventListener(
-        "visibilitychange",
-        () => {
-
-            if (document.hidden) {
-
-                clearInterval(autoplayTimer);
-
-            } else {
-
-                startAutoplay();
-
-            }
-
-        }
-    );
-
-
-    /* =========================================================
-       FOOTER YEAR
-    ========================================================= */
-
-    const yearElement =
-        document.getElementById("currentYear");
-
-
-    if (yearElement) {
-
-        yearElement.textContent =
-            new Date().getFullYear();
-
-    }
-
-
-    /* =========================================================
-       INITIALISE
-    ========================================================= */
-
-    updateProjectInformation();
-
-
-    /*
-     * The first image is already present in the HTML,
-     * so show it immediately instead of waiting
-     * for JavaScript to swap it.
-     */
-
-    showcaseImage.style.opacity = "1";
-
-    showcaseImage.style.transform =
-        "perspective(1000px) rotateY(0deg) rotateZ(0deg) scale(1)";
-
-
-    /*
-     * Preload the first project's images.
-     */
-
-    preloadProjectImages(
-        projects[0]
-    );
-
-
-    startAutoplay();
-
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Oluwapelumi Atanda — Data Analyst and Physiotherapy student focused on data analytics, business intelligence, statistics and healthcare analytics.">
+    <meta name="author" content="Oluwapelumi Atanda">
+
+    <title>Oluwapelumi Atanda | Data Analyst</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+        <a href="#top" class="logo" aria-label="Oluwapelumi Atanda home">OA.</a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <a
+            href="https://github.com/Only-Eni"
+            class="github-nav"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub ↗
+        </a>
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </div>
+</header>
+
+<main id="top">
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <p class="eyebrow">DATA ANALYST • HEALTHCARE ANALYTICS ENTHUSIAST</p>
+
+            <h1>
+                Turning data into
+                <span>meaningful decisions.</span>
+            </h1>
+
+            <p class="hero-description">
+                I'm Oluwapelumi Atanda, a Data Analyst and Physiotherapy student interested in using data to uncover patterns, communicate insights and support better decisions across business, research and healthcare.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="button button-primary">Explore My Work ↓</a>
+                <a href="https://github.com/Only-Eni" class="button button-secondary" target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
+            </div>
+
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <strong>SQL</strong>
+                    <span>Core Analytics</span>
+                </div>
+
+                <div class="hero-meta-item">
+                    <strong>BI</strong>
+                    <span>Power BI</span>
+                </div>
+
+                <div class="hero-meta-item">
+                    <strong>Research</strong>
+                    <span>Statistics</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">01 / ABOUT ME</p>
+                <h2>Data analysis with a <span>healthcare perspective.</span></h2>
+            </div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-image-wrapper">
+                <img
+                    src="assets/oluwapelumi-atanda.jpg"
+                    alt="Oluwapelumi Atanda"
+                    class="about-image"
+                    width="800"
+                    height="1000"
+                >
+            </div>
+
+            <div class="about-content">
+                <p>
+                    I am a Data Analyst with a growing interest in Business Intelligence, healthcare analytics and evidence-based decision-making.
+                </p>
+
+                <p>
+                    My Physiotherapy background gives me an additional perspective on working with health and research data, particularly where analytical thinking needs to connect with real-world outcomes.
+                </p>
+
+                <p>
+                    I work with SQL, Power BI, Microsoft Excel, SPSS and statistical methods to clean, explore, analyze and communicate data in a way that is useful to decision-makers.
+                </p>
+
+                <div class="focus-list">
+                    <p class="eyebrow">CURRENT FOCUS</p>
+
+                    <div class="focus-item">
+                        <span>01</span>
+                        <strong>Data Analytics</strong>
+                    </div>
+
+                    <div class="focus-item">
+                        <span>02</span>
+                        <strong>Business Intelligence</strong>
+                    </div>
+
+                    <div class="focus-item">
+                        <span>03</span>
+                        <strong>Healthcare Analytics</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects-section">
+        <div class="section-heading showcase-heading">
+            <div>
+                <p class="eyebrow">02 / SELECTED WORK</p>
+
+                <h2>
+                    Projects that show
+                    <span>how I work with data.</span>
+                </h2>
+            </div>
+
+            <p class="showcase-intro">
+                A visual walkthrough of selected analytics, visualization and research projects.
+            </p>
+        </div>
+
+        <div class="project-showcase" id="projectShowcase">
+
+            <div class="showcase-visual">
+                <div class="showcase-image-container">
+                    <img
+                        id="showcaseImage"
+                        class="showcase-image"
+                        src="assets/projects/decodelabs/DecodeLabs_main.png"
+                        alt="DecodeLabs Data Analytics Internship project"
+                        width="1200"
+                        height="800"
+                        loading="eager"
+                        decoding="async"
+                        fetchpriority="high"
+                    >
+
+                    <div class="showcase-image-overlay" aria-hidden="true"></div>
+                </div>
+
+                <div class="showcase-controls" aria-label="Project navigation">
+                    <button
+                        type="button"
+                        class="showcase-arrow"
+                        id="previousProject"
+                        aria-label="Previous project"
+                    >←</button>
+
+                    <div class="showcase-counter" aria-live="polite">
+                        <span id="currentProjectNumber">01</span>
+                        <span class="counter-divider">/</span>
+                        <span id="totalProjects">05</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="showcase-arrow"
+                        id="nextProject"
+                        aria-label="Next project"
+                    >→</button>
+                </div>
+            </div>
+
+
+            <div class="project-info">
+                <p class="project-category" id="projectCategory">DATA ANALYTICS INTERNSHIP</p>
+
+                <h3 class="project-title" id="projectTitle">
+                    DecodeLabs Data Analytics Internship
+                </h3>
+
+                <p class="project-description" id="projectDescription">
+                    Practical analytics work covering data preparation, SQL analysis and visualization across multiple internship tasks.
+                </p>
+
+                <div class="project-tags" id="projectTags">
+                    <span class="project-tag">SQL</span>
+                    <span class="project-tag">Excel</span>
+                    <span class="project-tag">Power BI</span>
+                    <span class="project-tag">Data Analysis</span>
+                </div>
+
+                <a
+                    href="#"
+                    class="showcase-link"
+                    id="showcaseLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    hidden
+                >
+                    View Project <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">03 / SKILLS</p>
+                <h2>Tools for turning <span>data into insight.</span></h2>
+            </div>
+
+            <p class="section-intro">
+                My current analytics toolkit spans data querying, business intelligence, spreadsheet analysis, visualization and statistical research.
+            </p>
+        </div>
+
+        <div class="skills-grid">
+            <article class="skill">
+                <span>01</span>
+                <h3>SQL & Data Analysis</h3>
+                <p>Querying, cleaning, aggregation, exploratory analysis and structured data investigation.</p>
+            </article>
+
+            <article class="skill">
+                <span>02</span>
+                <h3>Power BI & Visualization</h3>
+                <p>Dashboard design, KPI reporting and visual communication of analytical findings.</p>
+            </article>
+
+            <article class="skill">
+                <span>03</span>
+                <h3>Excel & Power Query</h3>
+                <p>Data preparation, validation, transformation and spreadsheet-based analysis.</p>
+            </article>
+
+            <article class="skill">
+                <span>04</span>
+                <h3>SPSS & Statistics</h3>
+                <p>Statistical testing, interpretation and research-oriented analytical workflows.</p>
+            </article>
+
+            <article class="skill">
+                <span>05</span>
+                <h3>Exploratory Data Analysis</h3>
+                <p>Profiling data, identifying patterns, checking quality and turning observations into useful questions.</p>
+            </article>
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+        <p class="eyebrow">04 / CONTACT</p>
+
+        <h2>Let's turn data into <span>something useful.</span></h2>
+
+        <p>
+            I am open to junior Data Analyst opportunities, analytics projects, research collaborations and opportunities where data can support better decisions.
+        </p>
+
+        <div class="contact-links">
+            <a href="mailto:olamideeniitan254@gmail.com" class="contact-link">Email</a>
+
+            <a
+                href="https://www.linkedin.com/in/oluwapelumi-atanda-438a9730b"
+                class="contact-link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >LinkedIn</a>
+
+            <a
+                href="https://x.com/TheDataPT"
+                class="contact-link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >X</a>
+
+            <a
+                href="https://github.com/Only-Eni"
+                class="contact-link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >GitHub</a>
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <p>© <span id="currentYear">2026</span> Oluwapelumi Atanda. Built with curiosity and data.</p>
+
+    <a
+        href="https://github.com/Only-Eni"
+        target="_blank"
+        rel="noopener noreferrer"
+    >GitHub ↗</a>
+</footer>
+
+</body>
+</html>
